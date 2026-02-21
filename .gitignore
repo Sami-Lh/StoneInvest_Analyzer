@@ -1,0 +1,21 @@
+# venv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Outputs
+outputs/
+*.xlsx
+*.xls
+*.pdf
+
+# IDE
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
