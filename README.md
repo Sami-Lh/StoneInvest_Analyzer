@@ -9,30 +9,39 @@ Stage Analyste Quantitatif en Gestion de Patrimoine :
   • Actifs : SCPI, ETF, Produits Structurés
 
 Fonctionnalités Implémentées :
-  1.  Analyse des Risques (RiskAnalyzer)
-       VaR 95% (paramétrique + historique)
-       CVaR / Expected Shortfall
-       Sharpe & Sortino Ratio
-       Maximum Drawdown
-       Stress Tests (4 scénarios historiques) : Crise 2008 (-45% actions) / COVID Mars 2020 (-35% actions) / Hausse taux 2022 (-15% obligations) / Choc inflation (2022-2023)
+  1.  Analyse des Risques (RiskAnalyzer) :
+      • VaR 95% (paramétrique + historique)
+      • CVaR / Expected Shortfall
+      • Sharpe & Sortino Ratio
+      • Maximum Drawdown
+      • Stress Tests (4 scénarios historiques) : Crise 2008 (-45% actions) / COVID Mars 2020 (-35% actions) / Hausse taux 2022 (-15% obligations) / Choc inflation (2022-2023)
       
   2.  Optimisation de Portefeuille (Markowitz) : 
-       Maximum Sharpe Ratio (tangency portfolio)
-       Minimum Variance Portfolio
-       Contraintes réalistes : 2-40% par actif
-       Algorithme : SLSQP (SciPy.optimize)
-       Résultat : +12% rendement ajusté risque
+      • Maximum Sharpe Ratio (tangency portfolio)
+      • Minimum Variance Portfolio
+      • Contraintes réalistes : 2-40% par actif
+      • Algorithme : SLSQP (SciPy.optimize)
+      • Résultat : +12% rendement ajusté risque
 
-  3.  Optimisation de Portefeuille (Markowitz)
-       Excel professionnel (openpyxl)
-       Métriques risque consolidées
-       Allocation optimisée
-       Stress tests détaillés
-       -35% temps reporting (8h→5h)
-
-
+  3.  Reporting Automatisé (ReportGenerator)
+      • Excel professionnel (openpyxl)
+      • Métriques risque consolidées
+      • Allocation optimisée
+      • Stress tests détaillés
+      • -35% temps reporting (8h→5h)
 
 
+  4.  Structure du projet 
+      StoneInvest_Analyzer/
+├── main.py                    # 🎯 Pipeline complet
+├── config.py                  # ⚙️ Paramètres métiers
+├── requirements.txt           # 📦 Dépendances
+├── modules/
+│   ├── risk_analysis.py       # 📊 VaR/CVaR/Stress Tests
+│   ├── portfolio_optimizer.py # ⚙️ Markowitz SLSQP
+│   └── reporting.py           # 📈 Excel automatisé
+├── .gitignore                 # 🧹 Nettoyage
+└── outputs/reports/           # 📁 Rapports générés
 
 
 
