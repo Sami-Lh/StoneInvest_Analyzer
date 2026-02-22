@@ -31,18 +31,6 @@ Fonctionnalités Implémentées :
       • -35% temps reporting (8h→5h)
 
 
-  4.  Structure du projet 
-      StoneInvest_Analyzer/
-├── main.py                    # 🎯 Pipeline complet
-├── config.py                  # ⚙️ Paramètres métiers
-├── requirements.txt           # 📦 Dépendances
-├── modules/
-│   ├── risk_analysis.py       # 📊 VaR/CVaR/Stress Tests
-│   ├── portfolio_optimizer.py # ⚙️ Markowitz SLSQP
-│   └── reporting.py           # 📈 Excel automatisé
-├── .gitignore                 # 🧹 Nettoyage
-└── outputs/reports/           # 📁 Rapports générés
-
 
 
 
