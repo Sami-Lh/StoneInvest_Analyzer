@@ -1,12 +1,15 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))  #path config.py
+
 import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
 from config import RISK_FREE_RATE, TRADING_DAYS
 
-class PortfolioOptimizer:
-    """
-    Optimisation de portefeuille via frontière efficiente de Markowitz.
-    """
+
+class PortfolioOptimizer:     #Opti de portefeuille via frontière efficiente + Markowitz
+    
+    
 
     def __init__(self, returns: pd.DataFrame):
         self.returns = returns
@@ -67,3 +70,33 @@ class PortfolioOptimizer:
             "Sharpe Ratio": round(sharpe, 4),
             "Allocations": dict(zip(self.asset_names, np.round(result.x * 100, 2))),
         }
+
+    def efficient_frontier(self, n_points: int = 100) -> list:  #Génère n_points sur frontière efficiente pour visualizer.py
+        min_ret = self.mean_returns.min()
+        max_ret = self.mean_returns.max()
+        target_returns = np.linspace(min_ret, max_ret, n_points)
+        frontier = []
+
+        for target in target_returns:
+            constraints = [
+                {"type": "eq", "fun": lambda w: np.sum(w) - 1},
+                {"type": "eq", "fun": lambda w, t=target: np.dot(w, self.mean_returns) - t},
+            ]
+            bounds = tuple((0.0, 1.0) for _ in range(self.n_assets))
+            init_weights = np.array([1 / self.n_assets] * self.n_assets)
+
+            result = minimize(
+                fun=lambda w: self._portfolio_stats(w)[1],
+                x0=init_weights,
+                method="SLSQP",
+                bounds=bounds,
+                constraints=constraints,
+            )
+            if result.success:
+                ret, vol, sharpe = self._portfolio_stats(result.x)
+                frontier.append({
+                    "Rendement (%)": round(ret * 100, 3),
+                    "Volatilité (%)": round(vol * 100, 3),
+                    "Sharpe Ratio": round(sharpe, 4),
+                })
+        return frontier

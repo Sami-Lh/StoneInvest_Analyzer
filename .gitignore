@@ -10,6 +10,7 @@ outputs/
 *.xlsx
 *.xls
 *.pdf
+*.png
 
 # IDE
 .vscode/
@@ -19,3 +20,4 @@ outputs/
 # OS
 .DS_Store
 Thumbs.db
+.pytest_cache/
