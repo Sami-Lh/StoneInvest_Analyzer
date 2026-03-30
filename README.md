@@ -145,5 +145,5 @@ streamlit run dashboard.py
 
 ## 👤 Auteur
 
-**[Ton Prénom Nom]** — Étudiant en Finance Quantitative  
-🔗 [LinkedIn](https://linkedin.com/in/ton-profil) · 📧 ton@email.com
+Sami LAHLAH — Étudiant en Finance Quantitative  
+https://www.linkedin.com/in/sami-lahlah-009707290/
