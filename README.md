@@ -91,7 +91,7 @@ StoneInvest_Analyzer/
 
 ```bash
 # 1. Cloner le repo
-git clone https://github.com/[ton-username]/StoneInvest_Analyzer.git
+git clone https://github.com/Sami-Lh/StoneInvest_Analyzer.git
 cd StoneInvest_Analyzer
 
 # 2. Créer l'environnement virtuel
